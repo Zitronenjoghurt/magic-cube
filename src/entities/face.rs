@@ -25,19 +25,19 @@ impl Face {
     ///
     /// let face = Face::new(9, Color::White).unwrap();
     /// assert_eq!(9, face.size());
-    /// assert_eq!(Color::White, face.squares()[0]);
-    /// assert_eq!(Color::White, face.squares()[1]);
-    /// assert_eq!(Color::White, face.squares()[2]);
-    /// assert_eq!(Color::White, face.squares()[3]);
-    /// assert_eq!(Color::White, face.squares()[4]);
-    /// assert_eq!(Color::White, face.squares()[5]);
-    /// assert_eq!(Color::White, face.squares()[6]);
-    /// assert_eq!(Color::White, face.squares()[7]);
-    /// assert_eq!(Color::White, face.squares()[8]);
+    /// assert_eq!(face.squares()[0], Color::White);
+    /// assert_eq!(face.squares()[1], Color::White);
+    /// assert_eq!(face.squares()[2], Color::White);
+    /// assert_eq!(face.squares()[3], Color::White);
+    /// assert_eq!(face.squares()[4], Color::White);
+    /// assert_eq!(face.squares()[5], Color::White);
+    /// assert_eq!(face.squares()[6], Color::White);
+    /// assert_eq!(face.squares()[7], Color::White);
+    /// assert_eq!(face.squares()[8], Color::White);
     /// ```
     pub fn new(size: usize, color: Color) -> Result<Face, &'static str> {
         if !(Face::MIN_SIZE..=Face::MAX_SIZE).contains(&size) {
-            return Err("Size out of range for Face ()");
+            return Err("Size out of range for Face");
         }
 
         let squares = vec![color; size * size].into_boxed_slice();

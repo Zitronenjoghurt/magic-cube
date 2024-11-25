@@ -21,13 +21,13 @@ impl Cube {
     /// use magic_cube::enums::face_side::FaceSide;
     ///
     /// let cube = Cube::new(3).unwrap();
-    /// assert_eq!(3, cube.size());
-    /// assert_eq!(Color::White,  cube.get_face(FaceSide::Top).squares()[0]);
-    /// assert_eq!(Color::Green,  cube.get_face(FaceSide::Front).squares()[0]);
-    /// assert_eq!(Color::Red,    cube.get_face(FaceSide::Right).squares()[0]);
-    /// assert_eq!(Color::Blue,   cube.get_face(FaceSide::Back).squares()[0]);
-    /// assert_eq!(Color::Orange, cube.get_face(FaceSide::Left).squares()[0]);
-    /// assert_eq!(Color::Yellow, cube.get_face(FaceSide::Bottom).squares()[0]);
+    /// assert_eq!(cube.size(), 3);
+    /// assert_eq!(cube.get_face(FaceSide::Top).squares()[0], Color::White);
+    /// assert_eq!(cube.get_face(FaceSide::Front).squares()[0], Color::Green);
+    /// assert_eq!(cube.get_face(FaceSide::Right).squares()[0], Color::Red);
+    /// assert_eq!(cube.get_face(FaceSide::Back).squares()[0], Color::Blue);
+    /// assert_eq!(cube.get_face(FaceSide::Left).squares()[0], Color::Orange);
+    /// assert_eq!(cube.get_face(FaceSide::Bottom).squares()[0], Color::Yellow);
     /// ```
     pub fn new(size: usize) -> Result<Cube, &'static str> {
         let cube = Cube {
@@ -44,6 +44,7 @@ impl Cube {
         Ok(cube)
     }
 
+    /// Returns the edge length of the cube
     pub fn size(&self) -> usize {
         self.size
     }
