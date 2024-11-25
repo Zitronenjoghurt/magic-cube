@@ -3,4 +3,4 @@
 ![](https://tokei.rs/b1/github/Zitronenjoghurt/magic-cube?category=code&type=Rust&logo=https://simpleicons.org/icons/rust.svg)
 
 # magic-cube
-A rust library providing a magic cube / rubik's cube implementation.
+A work-in-progress rust library providing a magic cube / rubik's cube implementation.
