@@ -1,2 +1,2 @@
-mod cube;
-mod face;
+pub mod cube;
+pub mod face;

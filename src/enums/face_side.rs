@@ -5,5 +5,5 @@ pub enum FaceSide {
     Right = 2,
     Back = 3,
     Left = 4,
-    Both = 5,
+    Bottom = 5,
 }

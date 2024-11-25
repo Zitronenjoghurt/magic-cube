@@ -4,34 +4,48 @@ use crate::enums::face_side::FaceSide;
 
 #[derive(Debug, Clone)]
 pub struct Cube {
-    height: u32,
-    width: u32,
+    size: usize,
     faces: [Face; 6]
 }
 
 impl Cube {
-    pub fn new(height: u32, width: u32) -> Cube {
-        let size = (height * width) as usize;
-        Cube {
-            height,
-            width,
+    /// Creates a 6-colored magic cube, all faces will be uniformly colored
+    ///
+    /// # Arguments
+    /// * `size` - Edge length of the cube between 1 and 256
+    ///
+    /// # Examples
+    /// ```
+    /// use magic_cube::entities::cube::Cube;
+    /// use magic_cube::enums::colors::Color;
+    /// use magic_cube::enums::face_side::FaceSide;
+    ///
+    /// let cube = Cube::new(3).unwrap();
+    /// assert_eq!(3, cube.size());
+    /// assert_eq!(Color::White,  cube.get_face(FaceSide::Top).squares()[0]);
+    /// assert_eq!(Color::Green,  cube.get_face(FaceSide::Front).squares()[0]);
+    /// assert_eq!(Color::Red,    cube.get_face(FaceSide::Right).squares()[0]);
+    /// assert_eq!(Color::Blue,   cube.get_face(FaceSide::Back).squares()[0]);
+    /// assert_eq!(Color::Orange, cube.get_face(FaceSide::Left).squares()[0]);
+    /// assert_eq!(Color::Yellow, cube.get_face(FaceSide::Bottom).squares()[0]);
+    /// ```
+    pub fn new(size: usize) -> Result<Cube, &'static str> {
+        let cube = Cube {
+            size,
             faces: [
-                Face::new(size, Color::White),
-                Face::new(size, Color::Green),
-                Face::new(size, Color::Red),
-                Face::new(size, Color::Blue),
-                Face::new(size, Color::Orange),
-                Face::new(size, Color::Yellow),
+                Face::new(size, Color::White)?,
+                Face::new(size, Color::Green)?,
+                Face::new(size, Color::Red)?,
+                Face::new(size, Color::Blue)?,
+                Face::new(size, Color::Orange)?,
+                Face::new(size, Color::Yellow)?,
             ]
-        }
+        };
+        Ok(cube)
     }
 
-    pub fn height(&self) -> u32 {
-        self.height
-    }
-
-    pub fn width(&self) -> u32 {
-        self.width
+    pub fn size(&self) -> usize {
+        self.size
     }
 
     pub fn faces(&self) -> &[Face] {

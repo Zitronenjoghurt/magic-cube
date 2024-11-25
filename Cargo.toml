@@ -1,7 +1,7 @@
 [package]
 name = "magic-cube"
 description = "A work-in-progress rust library providing a magic cube / rubik's cube implementation."
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/Zitronenjoghurt/magic-cube"
