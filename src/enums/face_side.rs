@@ -1,4 +1,5 @@
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Ord, PartialOrd, Hash)]
+#[repr(usize)]
 pub enum FaceSide {
     Top = 0,
     Front = 1,
